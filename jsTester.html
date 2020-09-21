@@ -2,19 +2,24 @@
 <head>
 <script language = "JavaScript">
 
-var number = 10; // Global variable available in out script
+var number = 0; // Global variable available in out script
+var myList = [ "Anne", "Bob", "Cathy", "Doug" ];
+    
 function tester()
 {   
 /*    
-	var answer; // Declare a new variable called answer
+	var answer; // Declare a new LOCAL variable called answer
     answer = confirm("Hello world"); // true or false is stored in answer var
     
     answer = prompt("What is your name?"); // string literal is between open/close quote marks
     alert("Welcome, "+answer);
-*/
+    
 
+    // = is ASSIGNMENT operator (right side is assigned to the left side
     number = number - 1; // Subtract 1 from number
     
+    
+    // == test EQUALITY
     if(number == 0)
     {
         alert("Blastoff");
@@ -25,13 +30,30 @@ function tester()
     {
         alert(number);
     }
+*/
+    alert(myList[number]);  
+    number = number + 1
+    if(number == 4) // Does number equal 4?
+    {
+        alert(myList[0]);
+    }
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
 
 
 </script>
 
 </head>
-<body>
+<body background="images/jsTesterbackground.jpg">
 <center> 
 <h1> JavaScript Tester </h1>
 
