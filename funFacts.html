@@ -1,0 +1,83 @@
+<html> 
+<head> 
+<script language="JavaScript">
+
+/*************** Algorithm ******************
+1. Write out the beginning code with headers and script.
+2. Create parameters to ensure that the website works.
+3. Make variables that will store arrays with the items from the catagory and the fun facts.
+4. Make a table to display that text.
+5. Create a function that will display the list on the screen.
+6. Create a function that will run the code to display the text by the user.
+*/
+
+
+var group = ["-- Choose an Actor --", "Steve Carell", "Rainn Wilson", "John Krazinski", "Jenna Fischer", "B.J. Novak", "Brian Baumgartner", "Oscar Nunez", "Phyllis Smith", "Angela Kinsey"];
+
+var facts = ["-- No president selected --", "Steven John Carell is an American actor, comedian, writer, producer, and director. He is best known for his portrayal of boss Michael Scott on the NBC sitcom The Office, on which he also worked as an occasional producer, writer and director.", "Rainn Dietrich Wilson is an American actor, writer, and producer. He is best known for his role as Dwight Schrute on the NBC sitcom The Office, for which he earned three consecutive Emmy Award nominations for Outstanding Supporting Actor in a Comedy Series.", "John Burke Krasinski is an American actor and filmmaker. He has had four Primetime Emmy Award nominations and two Screen Actors Guild Awards. He was named by Time magazine as one of the 100 most influential people in the world in 2018.", "Regina 'Jenna' Marie Fischer is an American actress best known for her portrayal of Pam Beesly on the NBC sitcom The Office, for which she was nominated for the Primetime Emmy Award for Outstanding Supporting Actress in a Comedy Series in 2007. She was also a producer for the show's final season.", "Benjamin Joseph Manaly Novak is an American actor, writer, comedian, and director. Novak was one of the writers and executive producers of The Office, in which he also played Ryan Howard.", "Brian Baumgartner is an American actor and director. He is best known for playing Kevin Malone, a character in the NBC sitcom, The Office.", "Oscar Nunez, sometimes credited as Oscar Nuñez, is a Cuban-American actor and comedian. He is best known for being an actor in his role as Dunder Mifflin accountant Oscar Martinez on NBC's The Office and State Farm's commercials. He was a member of The Groundlings and later became a regular cast member on The Office.", "Phyllis Smith is an American actress and casting associate. She is best known for playing Phyllis Vance in the television series The Office and her critically acclaimed voice role as Sadness in the film Inside Out. She also had a regular role on the Netflix series The OA.", "Angela Faye Kinsey is an American actress. She is best known for playing Angela Martin in the sitcom The Office. She also appeared in the sitcoms Your Family or Mine and Haters Back Off."];
+
+function loadData()
+{
+	for(var i = 0; i < group.length; i++)
+    {
+        var daList = document.getElementById("Actors");
+  		var option = document.createElement("option");
+  		option.text = group[i];
+  		daList.add(option);
+    }
+}
+
+// This function identifies which element from the drop down has been selected. It calls the 
+// getIndex function to acquire what the index of the selected item. Then it displays the 
+// corresponding element in the facts list. (This is diplayed in the textbox on the web page.)
+function start()
+{    
+	var names = document.getElementById("Actors");
+    //alert(names.value);
+    
+    var daIndex = getIndex(names.value)
+    //alert(names.value);
+    document.getElementById("funFact").value = facts[daIndex];
+
+    //alert(getIndex("hi "));
+}
+
+// This function searches the group array for the element passed as a parameter
+// and returns the index number for that element in the array.
+function getIndex(d)
+{
+    //var answer = d + "there";
+    
+    var index = -1
+    for(var i = 0; i < group.length; i++)
+    {
+        if(group[i] == d)
+            index = i;
+    }    
+    
+    return index;
+}
+
+
+
+</script>
+</head>
+<body onload="loadData()" background = "images/herobackground.jpg" bgcolor = "lightblue"> 
+<center>
+<h1>Presidential Fun Facts</h1>
+<h3> Return to <a href="index.html">Home </a> <h3>
+
+<br/><br/>
+<table border = 3>
+	<tr>
+		<td>  	<select name="p1" id="Actors"></select>	</td>
+		<td>	<input id="funFact" type="text" size="40"/> </td>
+	</tr>
+</table>
+<br/><br/>
+<input type="button" value="click" onclick="start()"/>
+</center>
+
+
+</body>
+</html>
