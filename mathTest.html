@@ -1,0 +1,124 @@
+<html>
+<head>
+<script language = "JavaScript">
+
+var questions = ["1+1", "2+2", "3+3", "4+4", "5+5", "6+6", "7+7", "8+8", "9+9"];
+   
+var answers = ["2", "4", "6", "8", "10", "12", "14", "16", "18"];
+   
+   
+var number = 0;
+var picList = [ "images/math1.jpeg", "images/math2.jpeg", "images/math3.jpeg", "images/math4.jpeg", "images/math5.jpeg", "images/math6.jpeg", "images/math7.jpeg", "images/math8.jpeg", "images/math9.jpeg"];
+
+ 
+var index = -1;
+var score = 0;
+   
+
+function displayImages()
+{
+var pic = document.getElementById("picFrame");
+    pic.src = picList[number];
+    pic.width = 400;
+   
+    number = number + 1;
+    if(number > 8)
+    {
+            number = 0;
+    }
+}
+
+
+   
+function displayQuestion()
+{  
+   
+    index = index + 1;
+    if( index > questions.length - 1 )
+    {
+        index = 0;
+    }
+    var answer = document.getElementById("question");
+    answer.value = questions[index];
+}  
+
+   
+   
+function updateScore()
+{
+    var answerT = document.getElementById("answer");
+     var daAnswer = checkAnswer(answerT.value);
+    if ( daAnswer == true )
+    {
+        score = score + 1;
+        alert("Correct!");
+    }
+    else if ( daAnswer == false )
+    {
+        alert("Sorry, but the correct answer is " +answers[index]);
+    }
+       
+}
+
+   
+   
+function checkAnswer(ans)
+{
+    var answer = -1;
+   if( ans == answers[index] )
+   {
+       answer = true;
+   }
+   else
+   {
+       answer = false;
+   }  
+    return answer;
+}
+   
+   
+function resetText()  
+{
+    document.getElementById("answer").value = "";
+}  
+   
+   
+
+   
+</script>
+
+</head>
+<body background="images/herobackground.jpg">
+<font color="purple">
+<center>
+<h1> Mathy Quiz </h1>
+
+<img id="picFrame" src="images/math1.jpeg"/ width = 400;>
+   
+<br/>
+<br/>
+<table border = 3>
+<tr>
+<td><input id="question" type="text" size="70" readonly = true/></td>
+</tr>
+<tr height = "12"><td></td>
+</tr>
+<tr>
+<td><input id="answer" type="text" size="70" onfocusout="updateScore()"  /> </td>
+</tr>
+</table>
+
+<br/><br/>
+<input type="button" value="Go On" onclick="displayQuestion(),displayImages(), resetText()"/>
+<h3> <a href="index.html">Index</a> </h3>    
+
+
+
+
+</center>
+</body>
+</html>
+
+
+
+
